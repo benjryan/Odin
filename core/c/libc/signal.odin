@@ -3,7 +3,7 @@ package libc
 // 7.14 Signal handling
 
 when ODIN_OS == .Windows {
-	foreign import libc "system:libucrt.lib"
+	foreign import libc "system:ucrt.lib"
 } else when ODIN_OS == .Darwin {
 	foreign import libc "system:System.framework"
 } else {

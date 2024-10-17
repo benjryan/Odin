@@ -43,6 +43,7 @@ Tracking_Allocator :: struct {
 	bad_free_array: [dynamic]Tracking_Allocator_Bad_Free_Entry,
 	mutex: sync.Mutex,
 	clear_on_free_all: bool,
+	on_alloc: proc(^Tracking_Allocator_Entry),
 	total_memory_allocated: i64,
 	total_allocation_count: i64,
 	total_memory_freed: i64,
@@ -164,6 +165,9 @@ tracking_allocator_proc :: proc(
 		data.current_memory_allocated += i64(entry.size)
 		if data.current_memory_allocated > data.peak_memory_allocated {
 			data.peak_memory_allocated = data.current_memory_allocated
+		}
+		if data.on_alloc != nil {
+			data.on_alloc(entry)
 		}
 	}
 

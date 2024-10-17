@@ -5,7 +5,7 @@ import "base:runtime"
 // 7.24 String handling
 
 when ODIN_OS == .Windows {
-	foreign import libc "system:libucrt.lib"
+	foreign import libc "system:ucrt.lib"
 } else when ODIN_OS == .Darwin {
 	foreign import libc "system:System.framework"
 } else {
