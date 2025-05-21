@@ -7,7 +7,7 @@ tss_dtor_t   :: proc "c" (rawptr)
 
 when ODIN_OS == .Windows {
 	foreign import libc {
-		"system:ucrt.lib", 
+		"system:libucrt.lib", 
 		"system:msvcprt.lib",
 	}
 

@@ -5,7 +5,7 @@ package libc
 import "base:intrinsics"
 
 when ODIN_OS == .Windows {
-	foreign import libc "system:ucrt.lib"
+	foreign import libc "system:libucrt.lib"
 } else when ODIN_OS == .Darwin {
 	foreign import libc "system:System.framework"
 } else {
